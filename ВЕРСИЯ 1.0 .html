@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный сайт Xitor99</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #f0f0f0;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            background: linear-gradient(to right, #9d50bb, #6e48aa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #6e48aa, 0 0 20px #6e48aa;
+            }
+            to {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #9d50bb, 0 0 40px #9d50bb;
+            }
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .about-card {
+            background: rgba(15, 12, 41, 0.85);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(157, 80, 187, 0.3);
+            backdrop-filter: blur(10px);
+            height: 600px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(157, 80, 187, 0.5);
+        }
+        
+        .social-card {
+            background: rgba(15, 12, 41, 0.85);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(157, 80, 187, 0.3);
+            backdrop-filter: blur(10px);
+            height: 420px;
+        }
+        
+        .social-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(157, 80, 187, 0.5);
+        }
+        
+        .news-card {
+            background: rgba(15, 12, 41, 0.85);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(157, 80, 187, 0.3);
+            backdrop-filter: blur(10px);
+            margin-top: 25px;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(157, 80, 187, 0.5);
+        }
+        
+        .card-title {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #9d50bb;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid rgba(157, 80, 187, 0.5);
+            padding-bottom: 10px;
+        }
+        
+        .card-title i {
+            font-size: 1.8rem;
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        
+        .profile-image {
+            height: 250px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #6e48aa, #9d50bb);
+        }
+        
+        .profile-image img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .intro-text {
+            font-size: 1.4rem;
+            color: #b8a1d9;
+            animation: fadeIn 1s ease;
+        }
+        
+        .username {
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #9d50bb, #6e48aa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px rgba(157, 80, 187, 0.5);
+            letter-spacing: 1px;
+            animation: pulse 2s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            from {
+                text-shadow: 0 0 5px rgba(157, 80, 187, 0.5);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(157, 80, 187, 0.8), 0 0 30px rgba(110, 72, 170, 0.6);
+            }
+        }
+        
+        .interests {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            background: rgba(46, 43, 80, 0.4);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #9d50bb;
+            animation: slideIn 1s ease;
+        }
+        
+        .news-content {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+        
+        .news-small {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 15px;
+            font-style: italic;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .social-icons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 5px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            padding: 18px 20px;
+            background: rgba(157, 80, 187, 0.1);
+            border-radius: 12px;
+            color: #b8a1d9;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 1px solid rgba(157, 80, 187, 0.2);
+        }
+        
+        .social-icons a:hover {
+            background: rgba(157, 80, 187, 0.2);
+            transform: translateY(-5px);
+            border: 1px solid rgba(157, 80, 187, 0.4);
+        }
+        
+        .social-icons i {
+            font-size: 2rem;
+            margin-right: 15px;
+            width: 40px;
+            text-align: center;
+        }
+        
+        .telegram i {
+            color: #0088cc;
+        }
+        
+        .youtube i {
+            color: #ff0000;
+        }
+        
+        .github i {
+            color: #ffffff;
+        }
+        
+        .social-label {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .social-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 3px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 20px;
+            border-top: 1px solid rgba(157, 80, 187, 0.3);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .decoration {
+            position: absolute;
+            z-index: 1;
+        }
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(157, 80, 187, 0.2) 0%, rgba(157, 80, 187, 0) 70%);
+            z-index: 1;
+        }
+        
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 5%;
+        }
+        
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 15%;
+            right: 10%;
+        }
+        
+        .right-column {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-card, .social-card {
+                height: auto;
+            }
+            
+            .username {
+                font-size: 2.8rem;
+            }
+            
+            .interests {
+                font-size: 1.1rem;
+            }
+            
+            .profile-image {
+                height: 200px;
+            }
+            
+            .right-column {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Декоративные элементы -->
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Личный сайт Xitor99</h1>
+        </header>
+        
+        <main>
+            <div class="content-grid">
+                <!-- Карточка "О себе" -->
+                <div class="about-card">
+                    <div class="card-title">
+                        <i class="fas fa-user"></i> О себе
+                    </div>
+                    <div class="profile-container">
+                        <div class="profile-image">
+                            <img src="1.png" alt="Персонаж Xitor99">
+                        </div>
+                        <div class="about-content">
+                            <div class="intro-text">Меня зовут</div>
+                            <div class="username">Xitor99</div>
+                            <div class="interests">
+                                Люблю игры, музыку, немного занимаюсь программированием
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Правая колонка -->
+                <div class="right-column">
+                    <!-- Карточка "Соцсети" -->
+                    <div class="social-card">
+                        <div class="card-title">
+                            <i class="fas fa-hashtag"></i> Соцсети
+                        </div>
+                        <div class="social-icons">
+                            <a href="https://t.me/Xitorux99" target="_blank" class="telegram">
+                                <i class="fab fa-telegram"></i>
+                                <div>
+                                    <div class="social-label">Telegram</div>
+                                    <div class="social-desc">@Xitorux99</div>
+                                </div>
+                            </a>
+                            <a href="https://youtube.com/@thexitoruksgames?si=R6phBMQdyx_Qfw6W" target="_blank" class="youtube">
+                                <i class="fab fa-youtube"></i>
+                                <div>
+                                    <div class="social-label">YouTube</div>
+                                    <div class="social-desc">TheXitorUKsGames</div>
+                                </div>
+                            </a>
+                            <a href="https://github.com/Xitor99" target="_blank" class="github">
+                                <i class="fab fa-github"></i>
+                                <div>
+                                    <div class="social-label">GitHub</div>
+                                    <div class="social-desc">Xitor99</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Новая карточка "Новости о сайте" -->
+                    <div class="news-card">
+                        <div class="card-title">
+                            <i class="fas fa-newspaper"></i> Новости о сайте
+                        </div>
+                        <div class="news-content">
+                            Версия сайта 1.0 запущена, пока что мало контента, но я работаю над этим
+                        </div>
+                        <div class="news-small">
+                            да-да, теперь и у такого ноунейма как я есть сайт
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>© 2025 Личный сайт Xitor99 | Создано с <i class="fas fa-heart" style="color:#9d50bb;"></i></p>
+        </footer>
+    </div>
+    
+    <script>
+        // Анимация элементов при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            // Анимация карточек
+            const cards = document.querySelectorAll('.about-card, .social-card, .news-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                }, index * 200);
+            });
+            
+            // Анимация текста
+            const textElements = document.querySelectorAll('.intro-text, .username, .interests, .news-content, .news-small');
+            textElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(20px)';
+                    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                    
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, 100);
+                }, 300 + index * 300);
+            });
+            
+            // Анимация изображения
+            const profileImage = document.querySelector('.profile-image');
+            setTimeout(() => {
+                profileImage.style.opacity = '0';
+                profileImage.style.transform = 'scale(0.9)';
+                profileImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                
+                setTimeout(() => {
+                    profileImage.style.opacity = '1';
+                    profileImage.style.transform = 'scale(1)';
+                }, 100);
+            }, 400);
+        });
+    </script>
+</body>
+</html>
