@@ -64,12 +64,6 @@
             margin-bottom: 40px;
         }
         
-        @media (max-width: 768px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
         .about-card {
             background: rgba(15, 12, 41, 0.85);
             border-radius: 15px;
@@ -330,6 +324,7 @@
             flex-direction: column;
         }
         
+        /* Мобильная версия */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5rem;
@@ -337,10 +332,34 @@
             
             .content-grid {
                 grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
             }
             
-            .about-card, .social-card {
+            .about-card, .social-card, .news-card {
                 height: auto;
+                width: 100%;
+                margin-bottom: 0;
+            }
+            
+            .about-card {
+                order: 1;
+            }
+            
+            .social-card {
+                order: 2;
+                margin-top: 0;
+            }
+            
+            .news-card {
+                order: 3;
+                margin-top: 0;
+            }
+            
+            .right-column {
+                order: 2;
+                display: contents;
             }
             
             .username {
@@ -353,10 +372,6 @@
             
             .profile-image {
                 height: 200px;
-            }
-            
-            .right-column {
-                order: -1;
             }
         }
     </style>
@@ -392,7 +407,7 @@
                     </div>
                 </div>
                 
-                <!-- Правая колонка -->
+                <!-- Правая колонка (для десктопа) -->
                 <div class="right-column">
                     <!-- Карточка "Соцсети" -->
                     <div class="social-card">
@@ -424,7 +439,7 @@
                         </div>
                     </div>
                     
-                    <!-- Новая карточка "Новости о сайте" -->
+                    <!-- Карточка "Новости о сайте" -->
                     <div class="news-card">
                         <div class="card-title">
                             <i class="fas fa-newspaper"></i> Новости о сайте
