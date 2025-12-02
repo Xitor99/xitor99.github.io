@@ -436,7 +436,7 @@
                         </div>
                     </div>
                     
-                    <!-- Карточка "Новости о сайте" -->
+                   
                     <div class="news-card">
                         <div class="card-title">
                             <i class="fas fa-newspaper"></i> Новости о сайте
@@ -458,9 +458,9 @@
     </div>
     
     <script>
-        // Анимация элементов при загрузке
+      
         document.addEventListener('DOMContentLoaded', function() {
-            // Анимация карточек
+          
             const cards = document.querySelectorAll('.about-card, .social-card, .news-card');
             cards.forEach((card, index) => {
                 setTimeout(() => {
@@ -475,7 +475,7 @@
                 }, index * 200);
             });
             
-            // Анимация текста
+         
             const textElements = document.querySelectorAll('.intro-text, .username, .interests, .news-content, .news-small');
             textElements.forEach((el, index) => {
                 setTimeout(() => {
@@ -490,7 +490,7 @@
                 }, 300 + index * 300);
             });
             
-            // Анимация изображения
+          
             const profileImage = document.querySelector('.profile-image');
             setTimeout(() => {
                 profileImage.style.opacity = '0';
